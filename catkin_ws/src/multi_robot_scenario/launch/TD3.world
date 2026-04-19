@@ -1090,7 +1090,7 @@
         <gravity>1</gravity>
       </link>
       <link name='Wall_33'>
-        <pose frame=''>6.200000 -7 0 0 -0 0</pose>
+        <pose frame=''>8.199436 4 0 0 -0 0</pose>
         <self_collide>0</self_collide>
         <kinematic>0</kinematic>
         <visual name='Wall_33_Visual'>
@@ -2520,6 +2520,88 @@
         <gravity>1</gravity>
       </link>
     </model>
+    <model name='sliding_wall_right'>
+      <static>false</static>
+      <pose frame=''>6.000000 0.179998 0.5 0 0 1.570801</pose>
+      <link name='gate_panel'>
+        <pose frame=''>0 0 0 0 0 0</pose>
+        <inertial>
+          <mass>8</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+        <gravity>0</gravity>
+        <visual name='panel_visual'>
+          <pose frame=''>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1.8 0.18 1</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Bricks</name>
+            </script>
+            <ambient>1 1 1 1</ambient>
+            <diffuse>1 1 1 1</diffuse>
+            <specular>0.2 0.2 0.2 1</specular>
+            <emissive>0 0 0 1</emissive>
+          </material>
+        </visual>
+        <collision name='panel_collision'>
+          <pose frame=''>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1.8 0.18 1</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>1</mu>
+                <mu2>1</mu2>
+              </ode>
+            </friction>
+            <contact>
+              <ode>
+                <kp>1e+13</kp>
+                <kd>1</kd>
+                <max_vel>0.01</max_vel>
+                <min_depth>0</min_depth>
+              </ode>
+            </contact>
+          </surface>
+        </collision>
+      </link>
+      <joint name='sliding_wall_right_joint' type='prismatic'>
+        <parent>world</parent>
+        <child>gate_panel</child>
+        <pose frame=''>0 0 0 0 0 0</pose>
+        <axis>
+          <xyz>1 0 0</xyz>
+          <limit>
+            <lower>-1.5</lower>
+            <upper>1.5</upper>
+          </limit>
+        </axis>
+      </joint>
+      <plugin name='sliding_wall_right_plugin' filename='librotating_wall_plugin.so'>
+        <joint_name>sliding_wall_right_joint</joint_name>
+        <amplitude>1.3</amplitude>
+        <speed>0.8</speed>
+        <offset>0</offset>
+        <phase>0</phase>
+      </plugin>
+    </model>
     <state world_name='default'>
       <sim_time>0 200000000</sim_time> <!-- 4045 200000000 -->
       <real_time>0 200000000</real_time> <!-- 4057 164900122 -->
@@ -2569,7 +2651,7 @@
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
         <link name='Wall_25'>
-          <pose frame=''>-4.900564 -4.1998840 0 0 -1.01325</pose>
+          <pose frame=''>-4.900564 -4.1998840 0 0 0 -1.01325</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
@@ -2611,7 +2693,7 @@
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
         <link name='Wall_33'>
-          <pose frame=''>6.200000 -7 0 0 -0 0</pose>
+          <pose frame=''>8.199436 4 0 0 -0 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
@@ -2731,6 +2813,16 @@
           <wrench>0 0 -9.8 0 -0 0</wrench>
         </link>
       </model>
+      <model name='sliding_wall_right'>
+        <pose frame=''>6.000000 0.179998 0.5 0 0 1.570801</pose>
+        <scale>1 1 1</scale>
+        <link name='gate_panel'>
+          <pose frame=''>6.000000 0.179998 0.5 0 0 1.570801</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
       <light name='sun'>
         <pose frame=''>0 0 10 0 -0 0</pose>
       </light>
@@ -2744,3 +2836,4 @@
     </gui>
   </world>
 </sdf>
+

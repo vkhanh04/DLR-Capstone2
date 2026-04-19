@@ -45,12 +45,12 @@ class TD3(object):
 # Set the parameters for the implementation
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")  # cuda or cpu
 seed = 0  # Random seed number
-max_ep = 500  # maximum number of steps per episode
+max_ep = 1000  # maximum number of steps per episode
 file_name = "TD3_velodyne"  # name of the file to load the policy from
 
 
 # Create the testing environment
-environment_dim = 20
+environment_dim = 36
 robot_dim = 4
 env = GazeboEnv("multi_robot_scenario.launch", environment_dim)
 time.sleep(5)

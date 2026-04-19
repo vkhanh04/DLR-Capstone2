@@ -56,7 +56,7 @@ def check_pos(x, y):
     if -3.0 > x > -7.2 and 0.5 > y > -1.5:
         goal_ok = False
 
-    if x > 4.5 or x < -4.5 or y > 4.5 or y < -4.5:
+    if x > 8.5 or x < -8.5 or y > 8.5 or y < -8.5:
         goal_ok = False
 
     return goal_ok
@@ -73,8 +73,8 @@ class GazeboEnv:
         self.goal_x = 1
         self.goal_y = 0.0
 
-        self.upper = 5.0
-        self.lower = -5.0
+        self.upper = 9.0
+        self.lower = -9.0
         self.velodyne_data = np.ones(self.environment_dim) * 10
         self.last_odom = None
 
@@ -249,8 +249,8 @@ class GazeboEnv:
         y = 0
         position_ok = False
         while not position_ok:
-            x = np.random.uniform(-4.5, 4.5)
-            y = np.random.uniform(-4.5, 4.5)
+            x = np.random.uniform(-8.5, 8.5)
+            y = np.random.uniform(-8.5, 8.5)
             position_ok = check_pos(x, y)
         object_state.pose.position.x = x
         object_state.pose.position.y = y
@@ -341,8 +341,8 @@ class GazeboEnv:
             y = 0
             box_ok = False
             while not box_ok:
-                x = np.random.uniform(-6, 6)
-                y = np.random.uniform(-6, 6)
+                x = np.random.uniform(-8, 8)
+                y = np.random.uniform(-8, 8)
                 box_ok = check_pos(x, y)
                 distance_to_robot = np.linalg.norm([x - self.odom_x, y - self.odom_y])
                 distance_to_goal = np.linalg.norm([x - self.goal_x, y - self.goal_y])
