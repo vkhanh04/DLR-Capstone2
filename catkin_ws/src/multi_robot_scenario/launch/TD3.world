@@ -1006,7 +1006,7 @@
         <gravity>1</gravity>
       </link>
       <link name='Wall_32'>
-        <pose frame=''>8,2 3.999998 0 0 -0 1.5708</pose>
+        <pose frame=''>1.000564 6.17988 0 0 -0 1.5708</pose>
         <self_collide>0</self_collide>
         <kinematic>0</kinematic>
         <visual name='Wall_32_Visual'>
