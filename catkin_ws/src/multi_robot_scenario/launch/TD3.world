@@ -1,3 +1,9 @@
+<!-- Note nhanh vài thứ -->
+<!-- <link name='Wall_16'> : tên model có 2 cái 1 cái để cập nhật link thêm các yếu tố vật lý, như độ đàn hồi va chạm,... --->
+<!-- cái còn lại chỉ để hiển thị nhưng chỉnh vị trí cần phải chỉnh ở cả 2 nơi tránh lỗi -->
+<!--   <pose frame=''>2.921350 0.033581 0 0 0 -1.5700</pose> : lần lượt theo thứ tự: tọa độ x y z quay theo trục x quay theo trục y quay theo trục z   -->
+<!-- <size>0.917149 0.15 1</size> : lần lượt chiều dài, chiều rộng, chiều cao -->
+
 <sdf version='1.6'>
   <world name='default'>
     <light name='sun' type='directional'>
