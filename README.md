@@ -65,6 +65,18 @@ $ cd ~/DRL-robot-navigation/catkin_ws
 $ source devel_isolated/setup.bash
 ```
 
+Change map in "empty_world.launch" file:```
+<arg name="world_name" default="Kitchen.world"/> 
+
+change check_pos in velodyne_env.py (line 26, 238, 320, 334) when change map
+recommend [-8.5, 8.5] for kitchen.world
+
+run and training command still the same
+```
+
+
+
+
 Run the training:
 ```shell
 $ cd ~/DRL-robot-navigation/TD3
